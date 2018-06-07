@@ -13,7 +13,8 @@ int main(int ar, char *arg[])
 		return 1;
 	}
 	
-	cout << "ojbk" << arg[1] << endl;
+	cout << "kkk" << endl;
+	cout << "sss" << endl;
 	
 	return 0;
 }
