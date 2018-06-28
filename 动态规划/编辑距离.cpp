@@ -19,6 +19,7 @@
 */
 #include<iostream>
 #include<string>
+#include<algorithm> 
 #define MAXV 256
 
 using namespace std;
@@ -26,13 +27,6 @@ using namespace std;
 string str1, str2;
 int dp[MAXV][MAXV];
 
-int min(int a, int b, int c)
-{
-	int min = a < c ? a : c;
-	min = b < min ? b : min;
-	
-	return min;
-}
 
 int distance()
 {
@@ -48,13 +42,13 @@ int distance()
 	{
 		for(int j = 1; j <= len2; j++)
 		{
-			if(str1[i - 1] == str1[j - 1])
+			if(str1[i - 1] == str2[j - 1])
 			{
 				dp[i][j] = dp[i - 1][j - 1];
 			}
 			else
 			{
-				dp[i][j] = min(dp[i-1][j-1] + 1, dp[i-1][j] + 1, dp[i][j-1] + 1);
+				dp[i][j] = min(dp[i - 1][j - 1], min(dp[i - 1][j], dp[i][j - 1])) + 1;
 			}
 			
 		}
