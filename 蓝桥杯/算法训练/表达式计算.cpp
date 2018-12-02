@@ -97,6 +97,7 @@ int main()
 		if(str[i] <= '9' && str[i] >= '0')
 		{
 			sum = str[i] - '0' + sum * carry;
+			//最后一个是数字的话要特殊处理 
 			if(i == len - 1)
 			{
 				data.push(sum);
